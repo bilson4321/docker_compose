@@ -1,5 +1,16 @@
 version: '3'
 services:
+        db:
+                image: mysql
+                environment: 
+                - MYSQL_DATABASE=${DATABASE}
+                - MYSQL_ROOT_PASSWORD=${ROOT_PASSWORD}
+                - MYSQL_USER=${USER}
+                - MYSQL_PASSWORD=${PASSWORD}
+                volumes:
+                - ./data:/docker-entrypoint-initdb.d
+                ports:
+                   - "33060:3306"
         node:
                 build: backend
                 ports: 
