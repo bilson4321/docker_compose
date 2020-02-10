@@ -15,7 +15,7 @@ class App extends React.Component {
     };
   }
   componentDidMount() {
-    axios.get("http://192.168.65.135:8080/contacts").then(value => {
+    axios.get("http://172.18.0.1:8080/contacts").then(value => {
       this.setState({ contactList: value.data });
     });
   }
@@ -23,7 +23,7 @@ class App extends React.Component {
     console.log("updated");
   }
   updateContact=()=>{
-    axios.get("http://192.168.65.135:8080/contacts").then(value => {
+    axios.get("http://172.18.0.1:8080/contacts").then(value => {
       this.setState({ contactList: value.data });
     });
   }

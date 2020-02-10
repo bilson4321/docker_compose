@@ -10,13 +10,15 @@ services:
                 volumes:
                 - ./data:/docker-entrypoint-initdb.d
                 ports:
-                   - "33060:3306"
+                   - "3306:3306"
         node:
                 build: backend
                 ports: 
                 - "8080:5000"
                 volumes: 
                 - ./backend:/usr/src/app
+                depends_on: 
+                - db
         react:
                 build: frontend
                 ports: 

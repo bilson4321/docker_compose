@@ -21,7 +21,7 @@ class ContactEditPage extends React.Component {
     componentDidMount () {
         const { id } = this.props.match.params;
     
-        let query="http://192.168.65.135:8080/contacts/"+id;
+        let query="http://172.18.0.1:8080/contacts/"+id;
         console.log("query",query);
         axios.get(query).then(value => {
         this.setState({ contactID: value.data.id,

@@ -1,4 +1,6 @@
-CREATE USER IF NOT EXISTS 'hello'@'%' IDENTIFIED WITH mysql_native_password BY 'hello1234';
+CREATE USER IF NOT EXISTS 'hello'@'%' IDENTIFIED WITH BY 'hello1234';
+
+GRANT ALL PRIVILEGES ON *.* TO 'hello'@'%';
 
 CREATE DATABASE IF NOT EXISTS `contacts`;
 

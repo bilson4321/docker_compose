@@ -9,13 +9,15 @@ var port=5000;
 app.use(express.json());
 
 const mysql=require('mysql');
-var connection=mysql.createConnection({
-	host     : '192.168.65.135',
-	user     : 'root',
-	password : 'admin',
+var connection=mysql.createPool({
+	connectionLimit : 10,
+	host     : 'db',
+	user     : 'hello',
+	port	 :'3306',
+	password : 'hello1234',
 	database : 'contacts'
   });
-connection.connect();
+
 app.get('/contacts',function(req,res,next){
 	var promise=new Promise((resolve,error)=>{
 		connection.query('SELECT * FROM user',function(err,results,fields){
